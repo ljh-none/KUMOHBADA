@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
-
-//////페이지 이동을 위한 상수 및 함수//////////////////////////////////////////////
+//////페이지 이동을 위한 상수 및 함수////////////t//////////////////////////////////
 const String HOMESUB = "homesub";
 const String CHATSUB = "chatsub";
 const String FLOATSUB = "floatsub";

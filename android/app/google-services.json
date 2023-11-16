@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250846120801",
+    "project_id": "kumohbada",
+    "storage_bucket": "kumohbada.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250846120801:android:013a21e79c49925974d320",
+        "android_client_info": {
+          "package_name": "com.example.kumohbada"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWT3Sts8jSW1N-42rO3wXiOb-BAbDKlPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
