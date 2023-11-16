@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'home_tab.dart';
 
 void main() => runApp(const MyApp());
 
 //////페이지 이동을 위한 상수 및 함수//////////////////////////////////////////////
-const String HOMESUB = "homesub";
-const String CHATSUB = "chatsub";
 const String FLOATSUB = "floatsub";
 const String CATEGORYSUB = "categorysub";
 const String ALERTSUB = "alertsub";
@@ -13,22 +12,6 @@ const String SEARCHSUB = "searchsub";
 Function gotoSub =
     (BuildContext context, String cls, [String? selectedLocation]) {
   switch (cls) {
-    // case HOMESUB:
-    //   Navigator.push(context,
-    //       MaterialPageRoute(builder: (context) => const HomePageSub()));
-    //   break;
-    // case CHATSUB:
-    //   Navigator.push(context,
-    //       MaterialPageRoute(builder: (context) => const ChatPageSub()));
-    //   break;
-    // case FLOATSUB:
-    //   Navigator.push(context,
-    //       MaterialPageRoute(builder: (context) => const FloatingSub()));
-    //   break;
-    // case CATEGORYSUB:
-    //   Navigator.push(context,
-    //       MaterialPageRoute(builder: (context) => const CategorySub()));
-    //   break;
     case ALERTSUB:
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => AlertSub()));
@@ -45,8 +28,69 @@ Function gotoSub =
       break;
   }
 };
-////////////////////////////////////////////////////////////////////////////////
+/////데이터/////////////////////////////////////////////////////////////////////
+final List<String> _availableLocations = [
+  '양호동',
+  '선주 원남동',
+  '도량동',
+  '양포동',
+  '상모 사곡동',
+  '광평동',
+  '칠곡',
+  '진미동',
+  '인동동',
+  '양포동',
+  '임오동',
+  '도량동',
+  '지산동',
+  '송정동',
+  '형곡동',
+  '원평동',
+  '신평동',
+  '비산동',
+  '공단동',
+];
 
+class User {
+  String nickname;
+  String id;
+  String pw;
+  String location;
+  int qi;
+// 등록 매물 수
+// 판매 중인 매물 수
+// 판매 완료 매물 수
+// 현재 채팅방 수?
+
+  User(this.nickname, this.id, this.pw, this.location, this.qi);
+}
+
+List<User> users = [
+  User("감자", "potato", "qwer1234", "양호동", 5),
+  User("양파", "onion", "qwer5678", "광평동", 3),
+  User("당근", "carrot", "qwer9101", "양호동", 1),
+];
+
+class Item {
+  //이미지
+  String title;
+  String category;
+  int price;
+  String describtion;
+  String regiTime;
+  User regitUser;
+//채팅 로그파일
+  Item(this.title, this.category, this.price, this.describtion, this.regiTime,
+      this.regitUser);
+}
+
+List<Item> items = [
+  Item("감자팝니다", "A", 10000, "상태 좋음", "regiTime", users[0]),
+  Item("양파팝니다", "B", 20000, "상태 보통", "regiTime", users[1]),
+  Item("적양파팝니다", "B", 30000, "상태 보통", "regiTime", users[1]),
+];
+
+//서식//////////////////////////////////////////////////////////////////////////
 var blackText = const TextStyle(color: Colors.black);
 
 class MyApp extends StatelessWidget {
@@ -71,15 +115,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentBottomIndex = 0;
   String? _selectedLocation = '양호동';
-
-  final List<String> _availableLocations = [
-    '양호동',
-    '서울',
-    '부산',
-    '대구',
-    '인천',
-    // 다른 지역을 추가할 수 있습니다.
-  ];
 
   void _tapBottomTab(int index) {
     setState(() {
@@ -160,14 +195,14 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-class HomeTabContent extends StatefulWidget {
-  const HomeTabContent({super.key});
+class ChatTabContent extends StatefulWidget {
+  const ChatTabContent({super.key});
 
   @override
-  State<HomeTabContent> createState() => _HomeTabContentState();
+  State<ChatTabContent> createState() => _ChatTabContentState();
 }
 
-class _HomeTabContentState extends State<HomeTabContent> {
+class _ChatTabContentState extends State<ChatTabContent> {
   //더미데이터
   List items = ["a", "b"];
 
@@ -184,29 +219,6 @@ class _HomeTabContentState extends State<HomeTabContent> {
       separatorBuilder: (context, index) {
         return const Divider(color: Colors.black);
       },
-    );
-  }
-}
-
-class ChatTabContent extends StatelessWidget {
-  const ChatTabContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-        child: Text('챗 탭 내용'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // FAB를 눌렀을 때 수행할 동작을 여기에 추가하세요.
-          // 예를 들면, 새로운 작업을 추가하거나 화면을 열 수 있습니다.
-        },
-        backgroundColor: Colors.orange,
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.endFloat, // FAB 위치 설정
     );
   }
 }
