@@ -92,6 +92,8 @@ List<Item> items = [
 
 //서식//////////////////////////////////////////////////////////////////////////
 var blackText = const TextStyle(color: Colors.black);
+var largeText = const TextStyle(fontSize: 17);
+var boldText = const TextStyle(fontWeight: FontWeight.bold);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -142,6 +144,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
         title: PopupMenuButton(
           itemBuilder: buildPopupMenu,
           initialValue: _selectedLocation,
@@ -151,8 +154,8 @@ class _MainPageState extends State<MainPage> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(_selectedLocation!, style: blackText),
-              const Icon(Icons.keyboard_arrow_down, color: Colors.black),
+              Text(_selectedLocation!),
+              const Icon(Icons.keyboard_arrow_down),
             ],
           ),
         ),
