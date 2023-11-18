@@ -4,6 +4,15 @@ import 'home.dart';
 import 'category.dart';
 import 'registitem.dart';
 
+/*
+Read Me
+registitem.dart, category.dart에 연우씨가 작업하신 거 담았습니다.
+bottomnavigationbar로 이동하는 홈 페이지, 채팅 페이지, 세팅 페이지도
+따로 파일 분리할거에요
+
+
+*/
+
 void main() => runApp(const MyApp());
 
 //////페이지 이동을 위한 상수 및 함수//////////////////////////////////////////////
