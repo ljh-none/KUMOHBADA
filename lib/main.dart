@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home_tab.dart';
+import 'chat.dart';
+import 'home.dart';
+import 'category.dart';
 
 void main() => runApp(const MyApp());
 
@@ -163,7 +165,8 @@ class _MainPageState extends State<MainPage> {
           IconButton(
             icon: const Icon(Icons.menu, color: Colors.black),
             onPressed: () {
-              // 목록 버튼을 눌렀을 때 수행할 동작을 추가
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CategoryScreen()));
             },
           ),
           IconButton(
@@ -194,34 +197,6 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {},
         child: const Icon(Icons.add),
       ),
-    );
-  }
-}
-
-class ChatTabContent extends StatefulWidget {
-  const ChatTabContent({super.key});
-
-  @override
-  State<ChatTabContent> createState() => _ChatTabContentState();
-}
-
-class _ChatTabContentState extends State<ChatTabContent> {
-  //더미데이터
-  List items = ["a", "b"];
-
-  @override
-  Widget build(BuildContext context) {
-    //위젯 빌드 함수
-    Widget? buildListView(context, index) {
-      return ListTile(title: Text(items[index]));
-    }
-
-    return ListView.separated(
-      itemCount: items.length,
-      itemBuilder: buildListView,
-      separatorBuilder: (context, index) {
-        return const Divider(color: Colors.black);
-      },
     );
   }
 }
