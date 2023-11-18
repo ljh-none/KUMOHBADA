@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'chat.dart';
 import 'home.dart';
 import 'category.dart';
+import 'registitem.dart';
 
 void main() => runApp(const MyApp());
 
@@ -194,7 +195,10 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => WritingPage()));
+        },
         child: const Icon(Icons.add),
       ),
     );
